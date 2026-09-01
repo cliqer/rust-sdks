@@ -1,3 +1,9 @@
+## 0.1.4 (2026-09-01)
+
+### Fixes
+
+- Add data streams v2 to exposed uniffi interface - #1286 (@1egoman)
+
 ## 0.1.3 (2026-08-25)
 
 ### Fixes

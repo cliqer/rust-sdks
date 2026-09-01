@@ -139,6 +139,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - bump libwebrtc to m125
+## 0.3.47 (2026-09-01)
+
+### Features
+
+- Handle capture of dmabuf using existing capture path
+- Removes livekit-runtime and converts this package to be tokio only again - #1375 (@1egoman)
+
+#### Expose network_type on IceCandidateStats
+
+Chromium's local `RTCIceCandidateStats` carries a non-standard `networkType` field (WiFi,
+cellular, ethernet, etc.), but `IceCandidateStats` had no place to put it, so it was silently
+dropped during `get_stats()` deserialization. Adds `network_type: Option<String>` to the struct;
+non-breaking since it already derives `#[serde(default)]`.
+
+### Fixes
+
+- Fix pre-encoded frame segfault on macOS
+
 ## 0.3.46 (2026-08-25)
 
 ### Features
